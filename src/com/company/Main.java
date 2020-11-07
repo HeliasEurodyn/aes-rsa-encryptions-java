@@ -34,7 +34,7 @@ public class Main {
         String publicKey = RsaEncryptionUtil.getKeyAsString(keyPair.getPublic());
         String privateKey = RsaEncryptionUtil.getKeyAsString(keyPair.getPrivate());
 
-        RsaEncryptionUtil rsaEncryptionUtil  = new RsaEncryptionUtil();
+        RsaEncryptionUtil rsaEncryptionUtil = new RsaEncryptionUtil();
         rsaEncryptionUtil.setKey(publicKey);
 
         long start = System.nanoTime();
@@ -46,18 +46,17 @@ public class Main {
         long decryptionTime = System.nanoTime() - start;
 
 
+        System.out.println("\n ------ RSA Algorithm ------ \n ");
 
-        System.out.println("\n ------ RSA Algorithm ------ \n " );
-
-        System.out.println("1. Data to be encrypted: "+ Base64.getEncoder().encodeToString(dataToEncrypt) );
-        System.out.println("2. Encrypted data: "+ Base64.getEncoder().encodeToString(encryptedData) );
-        System.out.println("3. Decrypted data: "+ Base64.getEncoder().encodeToString(decryptedData) );
+        System.out.println("1. Data to be encrypted: " + Base64.getEncoder().encodeToString(dataToEncrypt));
+        System.out.println("2. Encrypted data: " + Base64.getEncoder().encodeToString(encryptedData));
+        System.out.println("3. Decrypted data: " + Base64.getEncoder().encodeToString(decryptedData));
 
         System.out.print("4. Encryption time (seconds): ");
-        System.out.println(  encryptionTime / 1000000.0 );
+        System.out.println(encryptionTime / 1000000.0);
 
         System.out.print("5. Decryption time (seconds): ");
-       System.out.println(  decryptionTime / 1000000.0 );
+        System.out.println(decryptionTime / 1000000.0);
 
     }
 
@@ -74,21 +73,21 @@ public class Main {
         long encryptionTime = System.nanoTime() - start;
 
 
-         start = System.nanoTime();
+        start = System.nanoTime();
         byte[] decryptedData = aesEncryptionUtil.decrypt(encryptedData);
         long decryptionTime = System.nanoTime() - start;
 
-        System.out.println("\n ------ AES Algorithm ------ \n " );
+        System.out.println("\n ------ AES Algorithm ------ \n ");
 
-        System.out.println("1. Data to be encrypted: "+ Base64.getEncoder().encodeToString(dataToEncrypt) );
-        System.out.println("2. Encrypted data: "+ Base64.getEncoder().encodeToString(encryptedData) );
-        System.out.println("3. Decrypted data: "+ Base64.getEncoder().encodeToString(decryptedData) );
+        System.out.println("1. Data to be encrypted: " + Base64.getEncoder().encodeToString(dataToEncrypt));
+        System.out.println("2. Encrypted data: " + Base64.getEncoder().encodeToString(encryptedData));
+        System.out.println("3. Decrypted data: " + Base64.getEncoder().encodeToString(decryptedData));
 
         System.out.print("4. Encryption time (seconds): ");
-        System.out.println(  encryptionTime / 1000000.0 );
+        System.out.println(encryptionTime / 1000000.0);
 
         System.out.print("5. Decryption time (seconds): ");
-        System.out.println(  decryptionTime / 1000000.0 );
+        System.out.println(decryptionTime / 1000000.0);
 
     }
 

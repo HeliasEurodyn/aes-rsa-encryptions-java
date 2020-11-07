@@ -43,8 +43,8 @@ public class AesEncryptionUtil {
     }
 
     public static SecretKey generateKey() throws InvalidKeySpecException, NoSuchAlgorithmException {
-       String password =  UUID.randomUUID().toString();
-       return generateKey(password);
+        String password = UUID.randomUUID().toString();
+        return generateKey(password);
     }
 
     public static SecretKey generateKey(String password)
@@ -56,9 +56,6 @@ public class AesEncryptionUtil {
         SecretKey tmpKey = factory.generateSecret(spec);
         SecretKey secret = new SecretKeySpec(tmpKey.getEncoded(), "AES");
         return secret;
-
-
-
     }
 
     public void setKey(String encodedKey)
@@ -70,7 +67,6 @@ public class AesEncryptionUtil {
     public void setKey(SecretKey secretKey) {
 
         try {
-
             this.secretKey = secretKey;
             cipherEncryption = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipherEncryption.init(Cipher.ENCRYPT_MODE, secretKey);
@@ -102,7 +98,6 @@ public class AesEncryptionUtil {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     public byte[] decrypt(byte[] dataToDecrypt) {
@@ -120,7 +115,6 @@ public class AesEncryptionUtil {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     /*
@@ -154,6 +148,5 @@ public class AesEncryptionUtil {
                 keyLength);
         return factory.generateSecret(spec);
     }
-
 
 }
